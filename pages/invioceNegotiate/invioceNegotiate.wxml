@@ -1,0 +1,98 @@
+<view class='container'>
+    <view class='paragraph'>
+        <view>1.</view>
+        <view>
+            <text class='title'>问：发票的类型有哪些?</text>
+            <text>目前可以开具电子增值税普通发票(简称“电子发票”)、纸质增值税普通发票(简称“纸质发票”)。</text>
+        </view>
+    </view>
+    <view class='paragraph'>
+        <view>2.</view>
+        <view>
+            <text class='title'>问：发票内容可以开什么?</text>
+            <text>目前发票内容仅支持开【电器数码】。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>3.</view>
+        <view>
+            <text class='title'>问：发票的金额包含运费或活动金额吗?</text>
+            <text>发票总金额包等于您实际支付的消费金额(包含运费，如果订单中有不支持该发票类型的商品，则发票金额需减去该商品的支付金额)，不包括未实际支出的折扣的金额和使用礼品卡支付的金额。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>4.</view>
+        <view>
+            <text class='title'>问：为什么当我选择开具单位抬头发票时，需要填写纳税人识别号?</text>
+            <text>根据国家税务总局公告2017年第16号第一条规定：自2017年7月1日起，购买方为企业的，索取增值税普通发票时，应向销售方提供纳税人识别号或统一社会信用代码;销售方为其开具增值税普通发票时，应在“购买方纳税人识别号”栏填写购买方的纳税人识别号或统一社会信用代码。不符合规定的发票，不得作为税收凭证。</text>
+            <text>纳税人识别号有两种方式获取：①联系公司财务咨询开票信息;②登录全国组织代码管理中心查询：//www.nacao.org.cn/</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>5.</view>
+        <view>
+            <text class='title'>问：我想开具境外单位(包括港澳台)发票，没有纳税人识别号或统一社会信用代码怎么办?</text>
+            <text>可以选择发票抬头为个人，再填写境外单位名称。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>6.</view>
+        <view>
+            <text class='title'>问：什么是电子发票? </text>
+            <text>电子发票是指在购销商品、提供或者接受服务以及从事其他经营活动中，开具、收取的以电子方式存储的收付款凭证。严选开具的电子发票均为真实有效的合法发票，与传统纸质发票具有同等法律效力。电子发票可以用于财务报销、保修和维权。</text>
+            <text>根据国家税务总局公告2015年84号《关于推行通过增值税电子发票系统开具的增值税电子普通发票有关问题的公告》第三条：增值税电子普通发票的开票方和受票方需要纸质发票的，可以自行打印增值税电子普通发票的版式文件，其法律效力、基本用途、基本使用规定等与税务机关监制的增值税普通发票相同。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>7.</view>
+        <view>
+            <text class='title'>问：电子发票什么时候开具?</text>
+            <text>电子发票将会在订单下所有商品确认收货后开具，会有1-3天左右的延迟，请您耐心等待。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>8.</view>
+        <view>
+            <text class='title'>.问：电子发票在哪里下载?</text>
+            <text>您可通过购买时留下的邮箱号收到电子发票。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>9.</view>
+        <view>
+            <text class='title'>问：电子发票如何在网上查验?</text>
+            <text>可在深圳市国家税务局发票查验系统查询，网址为：http://dzswj.szgs.gov.cn/BsfwtWeb/apps/views/fp/fpcy/fp_fpcy.html</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>10.</view>
+        <view>
+            <text class='title'>问：如果申请退换货，发票如何处理?</text>
+            <text>您在申请退货后，已经开具的发票将会作废。如您还需要对其他商品开发票，可联系客服处理。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>11.</view>
+        <view>
+            <text class='title'>问：申请售后时，发票丢失了怎么办?</text>
+            <text>如果申请售后的商品发票丢失，可能会在退款中扣除相应的税点。</text>
+        </view>
+    </view>
+
+    <view class='paragraph'>
+        <view>12.</view>
+        <view>
+            <text class='title'>问：为什么有些发票随箱寄送，有些没有随箱?</text>
+            <text>正常情况下，纸质普通发票会随箱寄出。由于系统原因，部分特殊商品需要手工处理。该部分纸质发票会在发货后15-30个工作日单独寄出(若申请售后，需等待售后处理完毕)发票默认寄送到购买商品的收货地址，如需修改发票的邮寄地址，请联系客服处理。</text>
+        </view>
+    </view>  
+</view>

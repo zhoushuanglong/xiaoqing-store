@@ -1,0 +1,25 @@
+<view class='container containerPaddingTop'>
+    <view class='prodShow'>
+        <image mode='widthFix' src='{{goods_info.goods_img}}'/>
+        <view>
+            <text>{{goods_info.goods_name}}({{goods_info.goods_attr}})</text>
+            <text>共计{{goods_info.goods_number}}件商品</text>
+        </view>
+    </view>   
+    <textarea 
+        placeholder = '商品满足你的期待吗？说出你的使用心得，分享给想买的他们吧'
+        maxlength = '{{200}}'
+        bindblur='onblur'
+    />
+    <view class='imgContainer'>
+        <block wx:for='{{imgArr}}' wx:key='{{key}}' wx:for-index='key'>
+            <view class='wrap'>
+                <image class='deleteIcon' src='../../img/deleteImg.png' id='{{key}}' bindtap='removeImg'/>
+                <image mode='aspectFill' src='{{item}}' bindtap='previewImages' id='{{key}}'/>
+            </view>
+        </block>
+        <image wx:if='{{imgArr.length < 4}}' bindtap='selectImg' id='{{key}}' src='../../img/selectImg.png'/>
+    </view>
+</view>
+
+<view class="button-large" bindtap='bindSubmit'>提交</view>

@@ -1,0 +1,113 @@
+.container {
+    padding-top: 30rpx;
+    padding-bottom: 226rpx;
+}
+
+.panel {
+    background: #fff;
+    border: 1rpx solid #eee;
+    border-radius: 10rpx;
+    padding: 0 45rpx;
+    margin-bottom: 30rpx;
+    font-size: 28rpx;
+    padding-bottom: 15rpx;
+    color: #212121
+}
+
+.panel label {
+    font-size: 22rpx;
+    color: #bdbdbd;
+    display:block;
+}
+
+.panel .tab {
+    border-bottom: 1rpx solid #f5f5f5;
+    line-height: 1;
+    padding-bottom: 17rpx;
+}
+
+.panel .tab  view {
+    padding: 10rpx 25rpx;
+    border-radius: 5rpx;
+    border: 1rpx solid #424242;
+    display: inline-block;
+    color: #757575;
+}
+
+.panel .tab  view.active {
+    color: #f9d158;
+    background: #424242;
+}
+
+.panel:nth-of-type(-n+2) label {
+     margin:12rpx 0 24rpx;
+}
+
+.panel:nth-of-type(n+3) label {
+     margin:12rpx 0 30rpx;
+}
+
+.panel:nth-of-type(3) view:first-of-type {
+    border-bottom: 1rpx solid #f5f5f5;
+    padding-bottom: 30rpx;
+}
+
+.panel:nth-of-type(2) .owner {
+    margin-top: 30rpx;
+}
+
+.panel:nth-of-type(4) view, .panel:nth-of-type(2) .owner{
+    border-bottom: 1rpx solid #f5f5f5;
+    display:flex;
+    align-items: center;
+    padding-bottom: 30rpx;
+}
+
+.panel:nth-of-type(4) view text, .panel:nth-of-type(2) .owner text {
+    color: #bdbdbd
+}
+
+.panel:nth-of-type(4) view input, .panel:nth-of-type(2) .owner input {
+    flex: 1;
+    padding-left: 50rpx;
+}
+
+.negotiate {
+    display: flex;
+    align-items: center;
+}
+
+.negotiate view:nth-of-type(2) {
+    color: #757575;
+    border: 1px solid #bdbdbd;
+    font-size: 25rpx;
+    padding: 15rpx 21rpx;
+    border-radius: 5rpx;
+    margin: 0 30rpx;
+}
+
+.price {
+    color: #757575;
+}
+
+.price text {
+    color: #212121
+}
+
+.price text:first-of-type {
+    margin: 0 10rpx 0 50rpx;
+}
+
+.negotiate view:not(:nth-of-type(2)) {
+    border-top:1rpx solid #e0e0e0;
+    height:0;
+    flex: 1
+}
+
+.mt30 {
+    margin-top: 30rpx
+}
+
+.mr45 {
+    margin-right: 45rpx;
+}

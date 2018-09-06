@@ -1,0 +1,83 @@
+.serchBox {
+    padding: 33rpx 16rpx;
+    border-bottom: 1rpx solid #c8c7cc;
+    position: relative;
+}
+
+.serchBox image {
+    position: absolute;
+    width: 28rpx;
+    height: 28rpx;
+    z-index: 99;
+    top: 48rpx;
+    left: 30rpx;
+}
+
+.serchBox input {
+    background: #e8e8ed;
+    height: 63rpx;
+    border-radius: 15rpx;
+    font-size: 28rpx;
+    padding: 0 15rpx 0 50rpx;
+}
+
+.shopsBox {
+    padding: 0 21rpx 40rpx 31rpx;
+}
+
+.shopsBox .shop:not(:first-of-type) {
+    margin-top: 33rpx;
+}
+
+.shopsBox .addr{
+    margin: 36rpx 0 33rpx 8rpx;
+    color: #787878;
+    font-size: 32rpx;
+}
+
+.shopsBox .shop .right {
+    flex: 1;
+    line-height: 1;
+}
+
+.shopsBox .shop {
+    display: flex;
+    border-bottom: 1rpx solid #ababab;
+    padding-bottom: 36rpx;
+}
+
+.shopsBox .shop .right {
+    margin-left: 38rpx;
+}
+
+.shopsBox .shop .right .shopname {
+    font-size: 29rpx;
+    font-weight: bolder;
+}
+
+.shopsBox .shop .right  view {
+    display: flex;
+    margin-top: 18rpx;
+    align-items: flex-start;
+}
+
+.shopsBox .shop .right  view text {
+    font-size: 20rpx;
+    line-height: 1.4;
+    margin-left: 18rpx;
+    flex: 1
+}
+
+.shopsBox .shop .icon {
+    width: 200rpx;
+    height: 200rpx;
+}
+
+
+.shopsBox .shop .imgs {
+    width: 27rpx;
+}
+
+.shopsBox .shop .right  view:first-of-type image {
+    width: 22rpx;
+}

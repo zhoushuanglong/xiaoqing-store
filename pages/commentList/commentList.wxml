@@ -1,0 +1,26 @@
+<view class='container'>
+    <block wx:for='{{commentList}}' wx:key='{{key}}' wx:for-index='key' wx:for-item='val'>
+        <view class='panel'>
+            <view class='userInfo'>
+                <image src='{{val.user_picture}}'></image>
+                <text>{{val.username}}</text>
+            </view>
+            <view class='content'>{{val.content}}</view>
+            <view class='imgContainer' wx:if='{{val.thumb.length > 0}}'>
+                <block wx:for='{{val.thumb}}' wx:key='{{index}}' wx:for-index='index'>
+                    <image mode='aspectFill' id='{{item}}' bindtap='previewImages' data-imgarr='{{commentList[key].thumb}}' src='{{item}}'></image>
+                </block> 
+            </view>
+            <view class='otherInfo'>
+                <text>规格 | 小青音响（{{val.colors}}）</text>
+                <text>{{val.add_show_time}}</text>
+            </view>
+            <view class='service' wx:if='{{val.re_content}}'>
+                <text>小青客服：</text>
+                <text>
+                    {{val.re_content}}
+                </text>
+            </view>
+        </view>
+    </block>
+</view>

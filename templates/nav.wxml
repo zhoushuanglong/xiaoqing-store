@@ -1,0 +1,34 @@
+<template name="nav">
+    <view class="navigation">
+        <navigator url="../index/index" open-type="redirectTo">
+            <view wx:if="{{active==='index'}}" class="active">
+                <image src='../../img/nav-index-hover.png' />
+                <text>首页</text>
+            </view>
+            <view wx:else>
+                <image src='../../img/nav-index.png' />
+                <text>首页</text>
+            </view>
+        </navigator>
+        <navigator url="../cart/cart" open-type="redirectTo">
+            <view wx:if="{{active==='cart'}}" class="active">
+                <image src='../../img/nav-cart-hover.png' />
+                <text>购物车</text>
+            </view>
+            <view wx:else>
+                <image src='../../img/nav-cart.png' />
+                <text>购物车</text>
+            </view>
+        </navigator>
+        <navigator url="../user/user" open-type="redirectTo">
+            <view wx:if="{{active==='user'}}" class="active">
+                <image src='../../img/nav-user-hover.png' />
+                <text>我的</text>
+            </view>
+            <view wx:else>
+                <image src='../../img/nav-user.png' />
+                <text>我的</text>
+            </view>
+        </navigator>
+    </view>
+</template>

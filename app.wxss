@@ -1,0 +1,170 @@
+/**app.wxss**/
+
+@import './wxParse/wxParse.wxss'
+
+page {
+    background: #f5f5f5;
+}
+
+/*主题内容左右边距*/
+
+.container {
+    padding: 0 30rpx;
+}
+
+/*主题内容上边距*/
+
+.containerPaddingTop {
+    padding-top: 30rpx;
+}
+
+/*卡片样式*/
+
+.card {
+    background: #fff;
+    border: 1rpx solid #eee;
+}
+
+/*卡片圆角*/
+
+.card.radius {
+    border-radius: 10rpx;
+}
+
+/*加减按钮*/
+
+.add-subtract {
+    display: flex;
+    width: 195rpx;
+}
+
+.add-subtract .number {
+    flex: 1;
+    color: #424242;
+    font-size: 28rpx;
+    line-height: 60rpx;
+    text-align: center;
+}
+
+.btnAdd, .btnSubtract {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    height: 60rpx;
+    width: 60rpx;
+    color: #e0e0e0;
+    font-size: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5rpx;
+}
+
+.btnAdd {
+    background: #f2d26c;
+    border-color: #f2d26c;
+    color: #fff;
+}
+
+/*产品价格*/
+
+.production-price {
+    margin-top: 64rpx;
+    color: #ef5350;
+    font-size: 42rpx;
+    font-weight: bold;
+    position: relative;
+}
+
+.production-price text {
+    font-size: 42rpx;
+    line-height: 1;
+}
+
+.production-price text:first-of-type {
+    display: inline-block;
+    font-size: 18rpx;
+    margin:0 10rpx 2rpx 0;
+}
+
+.production-price text.before:before{
+    content: '-';
+    display:inline-block;
+    font-size: 18rpx;
+    position:absolute;
+    bottom: 18rpx;
+    left: -25rpx;
+}
+
+/*选择按钮*/
+
+.selectBtn {
+    height: 45rpx;
+    width: 45rpx;
+    border-radius: 5rpx;
+}
+
+/*底部大按钮*/
+.button-large {
+    margin-left: -350rpx;
+    position: fixed;
+    bottom: 38rpx;
+    left: 50%;
+    background: #f9d158;
+    border-radius: 5rpx;
+    height: 100rpx;
+    width: 700rpx;
+    color: #212121;
+    font-size: 30rpx;
+    line-height: 100rpx;
+    text-align: center;
+    z-index:999
+}
+
+/*导航*/
+
+.navigation {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    height: 100rpx;
+    width: 100%;
+    z-index: 9999;
+}
+
+.navigation navigator {
+    flex: 1 1 auto;
+    height: 100%;
+    width: 33.33%;
+    text-align: center;
+}
+
+.navigation view {
+    height: 94rpx;
+    display: inline-block;
+    width: 50rpx;
+}
+
+.navigation view.active {
+    border-bottom: 6rpx solid #b71f2e;
+}
+
+.navigation image {
+    margin-top: 10rpx;
+    height: 60rpx;
+    width: 50rpx;
+}
+
+.navigation text {
+    display: block;
+    font-size: 14rpx;
+    line-height: 0rpx;
+}
+
+.mr10 {
+    margin-right: 10rpx;
+}

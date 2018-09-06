@@ -1,0 +1,44 @@
+/**user.wxss**/
+@import "../user/user";
+
+.help-item {
+    margin-bottom: 32rpx;
+    padding: 0 45rpx;
+    color: #424242;
+    font-size: 28rpx;
+}
+
+
+.help-item view {
+    border-bottom: 1rpx solid #f5f5f5;
+    line-height: 90rpx;
+}
+
+.help-item .help-item-title {
+    color: #bdbdbd;
+    font-size: 24rpx;
+    line-height: 50rpx;
+    border: none;
+}
+
+.help-item .check-more {
+    border-bottom: none;
+    color: #616161;
+    font-size: 22rpx;
+    text-align: center;
+    line-height:82rpx;
+}
+
+.server {
+    line-height: 1;
+    padding: 34rpx 45rpx;
+}
+
+.user-center:last-child view image:first-of-type {
+    width: 35.72rpx;
+}
+
+.user-center view {
+    display: flex;
+    align-items: center;
+}

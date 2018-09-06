@@ -1,0 +1,83 @@
+.panel {
+    position: relative;
+    width: 690rpx;
+    height: 190rpx;
+    font-size: 0rpx;
+    display: flex;
+    margin-bottom: 16rpx;
+}
+
+.bgImg {
+    width: 690rpx;
+    height: 190rpx;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.panel-item {
+    position: relative;
+    z-index: 1;
+    font-size: 24rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.panel-left {
+    width: 193rpx;
+    height: 190rpx;
+    text-align: center;
+    color: #757575;
+}
+
+.panel-left .price {
+    font-size: 46rpx;
+    flex-wrap: 0 0 auto;
+}
+.panel-left .symbol {
+    margin-right: 10rpx;
+}
+
+.panel-left .desc {
+    font-size: 22rpx;
+    flex-wrap: 0 0 auto;
+}
+
+.panel-middle {
+  width: 405rpx;
+  border-right: 1px dashed #e0e0e0;
+  padding-left: 75rpx;
+  color: #757575;
+}
+
+.panel-middle .desc-top {
+    font-size: 33rpx;
+    color: #424242;
+}
+
+.panel-middle .desc-middle {
+    margin: 15rpx 0;
+}
+
+.panel-right {
+  color: #ffa726;
+  font-size: 26rpx;
+  align-items: center;
+  width: 90rpx;
+}
+
+.panel.disable .panel-right {
+    color: #c1c1c1;
+}
+
+.disabled {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+}
+
+.cou-null {
+    width: 429rpx;
+    display:block;
+    margin: 145rpx 0 0 170rpx;
+}

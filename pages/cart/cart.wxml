@@ -1,0 +1,59 @@
+<import src="../../templates/nav.wxml" />
+<template is="nav" data="{{active:'cart'}}" />
+
+<view class="container containerPaddingTop" wx:if='{{goodsList.length > 0}}'>
+    <block wx:key="{{index}}" wx:for="{{goodsList}}" wx:for-index="key" wx:for-item="value">
+        <block wx:key="{{key}}" wx:for="{{value.goods_list}}">
+            <view class="card-item card radius" id="{{key + '-' + index}}" bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+                <view class="card-item-wrap" style="transform: translateX({{item.swipePixel}}px)">
+                    <view class="card-item-con">
+                        <view class="layout select" bindtap="selectSingleGoods" data-index="{{key + '-' + index}}">
+                            <image data-index="{{key + '-' + index}}" wx:if="{{item.is_checked == 1}}" class="selectBtn" src="{{selectedImg}}"></image>
+                            <image data-index="{{key + '-' + index}}" wx:else class="selectBtn" src="{{selectImg}}"></image>
+                        </view>
+                        <view class="layout production-img">
+                            <image bindtap="selectSingleGoods" data-index="{{key + '-' + index}}" src="{{item.goods_thumb}}" mode='widthFix'></image>
+                        </view>
+                        <view class="layout more-info">
+                            <view>
+                                <view class="title">{{item.goods_name}}</view>
+                                <view class="simple">{{item.goods_attr}}</view>
+                            </view>
+                            <view class="price-ralate">
+                                <view class="production-price">
+                                    <text>￥</text><text>{{item.goods_price}}</text>
+                                </view>
+                                <view class="add-subtract">
+                                    <view class="btnSubtract" data-type="subtract" data-index="{{key + '-' + index}}" bindtap="goodsChange">-</view>
+                                    <input class='number' value='{{item.goods_number}}' data-index="{{key + '-' + index}}" type='number' bindblur='goodsChange' data-type='input'/>
+                                    <view class="btnAdd" data-type="add" data-index="{{key + '-' + index}}" bindtap="goodsChange">+</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="delete" bindtap="delItem" data-index="{{key + '-' + index}}">删除</view>
+                </view>
+            </view>
+        </block>
+    </block>
+</view>
+<view wx:if='{{goodsList.length === 0 || goodsList[0].goods_list.length === 0}}' class='cart-null' style='height: {{pageHeight}}px'>
+    <image src='../../img/cart-null.png'/>
+    <view bindtap='goBuy'>前往商品详情</view>
+</view>
+
+<view class="settle-accounts" wx:if='{{goodsList.length > 0 && goodsList[0].goods_list.length > 0}}'>
+    <view bindtap="selectAllGoods" class="select">
+        <image wx:if="{{selectAll === true}}" class="selectBtn" src="{{selectedImg}}"></image>
+        <image wx:else class="selectBtn" src="{{selectImg}}"></image>
+        <text>全选</text>
+    </view>
+    <view class="price-wrap">
+        合计：
+        <view class="production-price">
+            <text>￥</text><text>{{goodsAllPrice}}</text>
+        </view>
+    </view>
+    <view wx:if='{{cartShow > 0}}' class="button" bindtap="goodsPay">结算({{cartShow}})</view>
+    <view wx:else class="button gray" >结算</view>
+</view>

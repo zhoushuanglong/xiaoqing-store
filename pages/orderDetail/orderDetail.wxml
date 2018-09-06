@@ -1,0 +1,173 @@
+<!--orderDetail.wxml-->
+<view class="order-detail-banner">
+    <image wx:if='{{order.order_status === "已取消" || order.order_status === "退货"}}' src="../../img/order-detail-status-0.png"></image>
+    <block wx:else>
+        <image wx:if='{{order.shipping_status === "已收货" || order.shipping_status === "收货确认"}}' src="../../img/order-detail-banner.jpg"></image>
+        <block wx:else>
+            <image wx:if='{{order.pay_status === "未付款"}}' src="../../img/order-detail-status-1.png"></image>
+            <block wx:else>
+                <block wx:if='{{order.shipping_status === "未发货" || order.shipping_status === "配货中"}}' >
+                    <block wx:if='{{!isOverDeadLine}}'>
+                        <text>3月31日前发货</text>
+                        <image src="../../img/temp_331.jpg"></image>
+                    </block>
+                    <image wx:else src="../../img/order-detail-status-3.png"></image>
+                </block>
+                <image wx:else  src="../../img/order-detail-status-2.png"></image>
+            </block>
+        </block>
+    </block>
+</view>
+
+<view class="container containerPaddingTop">
+    <view class="card raduis order-detail logistics-info" wx:if='{{order.order_status !== "退货" && order.pay_status !== "未付款" && order.shipping_status !== "未发货" && order.shipping_status !== "配货中"}}'>
+        <view class="car">
+            <image src="../../img/order-detail-car.png"></image>
+        </view>
+        <text wx:if='{{order.shipping_status === "已收货" || order.shipping_status === "收货确认"}}' bindtap='goDetail'>感谢您的此次购物，欢迎下次光临</text>
+        <text wx:else bindtap='goLogistics' id='{{order.order_sn}}' data-invoice_no='{{order.invoice_no}}' data-shippingName='{{order.shipping_name}}' data-addrDetail='{{order.detail_address}}' >您的快件正在运送途中，请您耐心等待</text>
+        <image class="more" src="../../img/arrow-right-more.png"></image>
+    </view>
+
+
+    <view class="card raduis order-detail user-info">
+        <view class="pos">
+            <image src="../../img/order-detail-position.png"></image>
+        </view>
+        <view class="user-info-con">
+            <view class="name-phone">
+                <text>{{order.consignee}}</text>{{order.mobile}}
+            </view>
+            <view class="address">{{order.detail_address}}</view>
+        </view>
+    </view>
+
+
+    <view class="card raduis order-detail pro-info">
+        <view class="name-serve">
+            <text>{{order.shop_name}}</text>
+            <button open-type="contact" class="contact">
+                <text>联系客服</text>
+                <image src="../../img/order-detail-msg.png"></image>
+            </button>
+        </view>
+        <block wx:for='{{goods_list}}' wx:for-index='key' wx:key='{{key}}'>
+            <view class="pro-show pro-show-detail">
+                <image src="{{item.goods_img}}"></image>
+                <view class="pro-con">
+                    <view class="pro-name">{{item.goods_name}}{{item.goods_color}}</view>
+                    <view class="price-con">
+                        <view class="price">
+                            <text>￥</text>{{item.goods_money}}
+                            <text class="pro-count">X{{item.goods_number}}</text>
+                        </view>
+                        <view wx:if='{{order.shipping_status === "已收货" || order.shipping_status === "收货确认"}}'  class="add-cart" bindtap='addToCart' data-item='{{item}}'>加购物车</view>
+                    </view>
+                </view> 
+            </view>
+        </block>
+    </view>
+
+
+    <view class="card raduis order-detail detail-more">
+        <view class="more-item">
+            <view class="paragraph">订单编号：
+                <text>{{order.order_sn}}</text>
+            </view>
+            <view class="paragraph">下单时间：
+                <text>{{order.add_time}}</text>
+            </view>
+        </view>
+        <view class="more-item">
+            <view class="paragraph">支付方式：
+                <text>微信支付</text>
+            </view>
+        </view>
+        <view class="more-item">
+            <view class="paragraph">配送方式：
+                <text>{{order.shipping_name || '顺丰速递'}}</text>
+            </view>
+            <view class="paragraph">配送时间：
+                <text>{{ order.shipping_datestr || '不限制配送时间'}}</text>
+            </view>
+        </view>
+    </view>
+
+    <view wx:if='{{order.inv_content}}' class="card raduis order-detail detail-more">
+        <view class="more-item">
+            <view class="paragraph mb25">
+                发票类型：
+                <text>{{order.inv_type}}</text>
+            </view>
+            <view class="paragraph mb25">
+                发票抬头：
+                <text>{{order.inv_payee}}</text>
+            </view>
+            <view class="paragraph mb25">
+                发票内容：
+                <text>{{order.inv_content}}</text>
+            </view>
+            <view wx-if='{{order.tax_id}}' class="paragraph">
+                纳税人识别号：
+                <text>{{order.tax_id}}</text>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="card raduis order-detail price-more">
+        <view class="price-item">
+            <text>商品金额</text>
+            <view class="production-price">
+                <text>￥</text>{{order.goods_amount}}
+            </view>
+        </view>
+        <view class="price-item">
+            <text>运费</text>
+            <view class="production-price">
+                <text>￥</text>{{order.shipping_fee}}
+            </view>
+        </view>
+        <view class="price-item">
+            <text>优惠券</text>
+            <view class="production-price">
+                <text class='before'>￥</text>{{order.cou_fee}}
+            </view>
+        </view>
+        <view class="price-item">
+            <text>实付款</text>
+            <view class="production-price" wx:if='{{order.pay_status === "未付款"}}'>
+                <text>￥</text>{{order.order_amount}}
+            </view>
+            <view class="production-price" wx:if='{{order.pay_status === "已付款"}}'>
+                <text>￥</text>{{order.money_paid}}
+            </view>
+        </view>
+    </view>
+
+</view>
+
+<view class="order-detail-button" wx:if='{{order.order_status === "已取消" || order.order_status === "退货"}}'>
+    <view class='first' bindtap='call'>售后服务</view>
+    <view class='last' bindtap='goDetail'>再次购买</view>
+</view>
+
+<block wx:else>
+    <view class="order-detail-button" wx:if='{{order.shipping_status === "已收货" || order.shipping_status === "收货确认"}}'>
+        <view class='first' bindtap='call'>售后服务</view>
+        <view class='last' wx:if='{{commented == 1}}' bindtap='goDetail'>再次购买</view>
+        <view class='last' wx:else bindtap='addComment' data-colorarr='{{colorArr}}' data-order_id='{{order_id}}' data-order_goods_num='{{order_goods_num}}' data-goods_list='{{goods_list}}'>评价晒单</view>
+    </view>
+    <view class="order-detail-button" wx:if='{{order.shipping_status === "未发货" || order.shipping_status === "配货中"}}'>
+        <view class='first' bindtap='goDetail'>再次购买</view>
+        <button open-type="contact">申请退款</button>
+    </view>
+    <view class="order-detail-button" wx:if='{{order.pay_status === "未付款"}}'>
+        <view class='first' bindtap='cancel' id='{{order.order_id}}'>取消订单</view>
+        <view class='last' bindtap='pay' id='{{order.order_id}}'>立即支付</view>
+    </view>
+    <view class="order-detail-button" wx:if='{{order.shipping_status === "已发货" && state == 3}}'>
+        <button class='dark' open-type="contact">联系客服</button>
+        <view class='last' bindtap='confirm'  id='{{order.order_id}}'>确认收货</view>
+    </view>
+</block>

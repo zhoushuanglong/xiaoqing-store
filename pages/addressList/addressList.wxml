@@ -1,0 +1,26 @@
+<!--addressList.wxml-->
+<view class="container containerPaddingTop">
+    <block wx:for='{{address_list}}' wx:for-index='key' wx:key='{{key}}' >
+        <view  class="card radius address-item {{item.address_id === selected_id ? '' : 'active' }}">
+            <view class="layout current-item" bindtap='select' id='{{item.address_id}}' data-address='{{item}}'>
+                <image src="../../img/select-active.jpg"></image>
+            </view>
+            <view class="layout address-con" bindtap='bindselect' id='{{item.address_id}}' data-index='{{key}}' data-address='{{item}}'>
+                <text class="name-phone"><text>{{item.consignee}}</text>{{item.mobileStr}}</text>
+                <text class="address">{{item.address}}</text>
+            </view>
+            <view class="layout edit-con"  bindtap='toeditAddress'  data-item='{{item}}'>
+                <image src="../../img/edit-btn.png"></image>
+                编辑
+            </view>
+        </view>
+    </block>
+    <block wx:if='{{ address_list.length === 0 }}'>
+        <image class='address-null' src='../../img/address-null.png'/>
+    </block>
+</view>
+
+
+<view class="button-large add-address-btn" bindtap='toNewAddress'>
+    添加地址
+</view>

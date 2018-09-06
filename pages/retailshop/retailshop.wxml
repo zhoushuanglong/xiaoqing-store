@@ -1,0 +1,28 @@
+<!-- <view class='serchBox'>
+    <image src='../../img/serch.jpg'/>
+    <input placeholder='按城市名称搜索'/> 
+</view> -->
+
+<view class='shopsBox'> 
+    <block wx:for='{{shops}}' wx:key='{{index}}' wx:for-index='index' wx:for-item='ele'> 
+        <view class='addr'>{{ele.area}}</view>
+        <view class='shop' wx:for='{{ele.shopList}}' wx:for-index='idx' wx:key='{{idx}}'>
+            <image mode='aspectFill' class='icon' src='{{item.icon}}'/>
+            <view class='right'>
+                <text class='shopname'>{{item.name}}</text>
+                <view>
+                    <image class='imgs' mode='widthFix' src='../../img/location.png'/>
+                    <text>{{item.addr}}</text>
+                </view>
+                <view>
+                    <image class='imgs' mode='widthFix' src='../../img/time.png'/>
+                    <text>{{item.time || '上午10:00-晚上22:00'}}</text>
+                </view>
+                <view wx:if='{{item.tel !== undefined}}'>
+                    <image class='imgs' mode='widthFix' src='../../img/phone.png'/>
+                    <text bindtap='call' id='{{item.tel}}'>{{item.tel}}</text>
+                </view>
+            </view>
+        </view>
+    </block> 
+</view>

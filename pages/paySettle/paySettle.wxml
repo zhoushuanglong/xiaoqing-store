@@ -1,0 +1,95 @@
+<!--paySettle.wxml-->
+<view class="container containerPaddingTop {{address==='' ? '' : 'active'}}">
+
+    <view class="pay-settle card radius">
+        <view class="pay-settle-title">购物清单</view>
+        <block wx:for='{{goods_list}}' wx:key='{{item.rec_id}}'>
+            <view class="production-info">
+                <view class="layout production-img">
+                    <image src="{{item.goods_img}}"></image>
+                </view>
+                <view class="layout production-intro">
+                    <view class="pro-intro-title">{{item.goods_name}}{{item.goods_color}}</view>
+                    <view class="pro-intro-simple">
+                        <text>商品数量：{{item.goods_number}}件</text>
+                        <view class="production-price">
+                            <text>￥</text>{{item.subtotal}}
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+ 
+    <view class="pay-settle card radius flex" bindtap='toAddress'>
+        <view class="pay-settle-title">配送地址</view>
+        <view>
+            <text wx:if='{{address===""}}'>添加配送地址</text>
+            <text wx:else>{{address}}</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </view>
+
+    <picker bindchange="bindPickerChange" value="{{time[index]}}" range="{{time}}">
+        <view class="pay-settle flex card radius">
+            <view class="pay-settle-title">配送时间</view>
+            <view>
+                <text>{{time[index]}}</text>
+                <image src="../../img/arrow-right-more.png"></image>
+            </view>
+        </view>
+    </picker>
+
+    <view class="pay-settle card radius flex" bindtap='toInvoice'>
+        <view class="pay-settle-title">发票</view>
+        <view>
+            <text wx:if='{{ inv_info=== "" }}'>无发票信息</text>
+            <text wx:else>{{inv_info.inv_Type}}，{{inv_info.inv_personal === '1' ? inv_info.inv_payee : '个人'}}，{{inv_info.content}}</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </view>
+
+    <view class="pay-settle card radius flex" bindtap='toDiscount'>
+        <view class="pay-settle-title">优惠券</view>
+        <view>
+            <view class='discount'>
+                <text class='mr30'>优惠券</text><text class='mr10'>¥</text>{{cou_fee}}
+            </view>    
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </view>
+
+    <view class="pay-settle card radius pay-detail">
+        <view class="pay-settle-title pro-pay">
+            <text>商品金额</text>
+            <view class="production-price">
+                <text>￥</text>{{goods_price}}
+            </view>
+        </view>
+        <view class="pay-settle-title transport-pay">
+            <text>运费</text>
+            <view class="production-price">
+                <text>￥</text>{{shipping_fee}}
+            </view>
+        </view>
+        <view wx:if='{{cou_fee !== "0.00"}}' class="pay-settle-title transport-pay">
+            <text>优惠券</text>
+            <view class="production-price">
+                <text class='before'>￥</text>{{cou_fee}}
+            </view>
+        </view>
+        <view class="pay-settle-title real-pay">
+            <text>实付款</text>
+            <view class="production-price">
+                <text>￥</text>{{amount}}
+            </view>
+        </view>
+    </view>
+</view>
+
+<view  wx:if='{{address===""}}' class="pay-tips">
+    <image src="../../img/exclamation-point.png"></image>
+    您尚未添加配送地址
+</view>
+
+<view class="button-large wx-pay-btn" bindtap='pay'>微信支付</view>

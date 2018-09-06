@@ -1,0 +1,46 @@
+<!--myOrder.wxml-->
+
+<view  wx:if='{{ order_list.length === 0 }}' class='order-null' style='height: {{pageHeight}}px'>
+    <image src='../../img/order-null.png'/>
+    <view bindtap='goBuy'>前往商品详情</view>
+</view>
+
+<view class="container containerPaddingTop">
+    <block wx:for='{{order_list}}' wx:key='{{key}}' wx:for-index='key' wx:for-item='value'>
+        <view class="card raduis order-detail pro-info my-order">
+            <view class="name-serve">
+                <text>订单编号：{{value.order_sn}}</text>
+                <text class="deal-state" wx:if='{{!isOverDeadLine && value.orderStatus === "等待发货"}}'>3月31日前发货</text>
+                <text class="{{value.orderStatus === '交易取消' ? 'deal-cancel' : 'deal-state'}}" wx:else>{{value.orderStatus}}</text>
+            </view>
+            <view bindtap='toDetail' id='{{value.order_id}}' data-commented='{{value.commented}}' data-colorarr='{{value.colorArr}}' data-order_goods_num='{{value.order_goods_num}}'  class="pro-show {{order_list[key].order_goods.length > 1 ? 'flex-start' : ''}}">
+                <block wx:for='{{order_list[key].order_goods}}' wx:key='{{index}}' wx:for-index='index'>
+                        <image  src="{{item.goods_img}}"></image>
+                        <view wx:if='{{order_list[key].order_goods.length === 1}}' class="pro-con">
+                            <view class="pro-name">{{item.goods_name}}{{item.goods_color}}</view>
+                            <view class="price-con">
+                                <view class="price">
+                                    <text>￥</text>{{item.goods_amount}}
+                                </view>
+                                <view class='goods_num'>x{{item.goods_number}}</view>
+                            </view>
+                        </view>
+                </block>
+            </view>
+            <view class="check-detail">
+                <view>
+                    <text>共计{{value.order_goods_num}}件商品</text>
+                    <view>合计：¥<text class='total'>{{value.total_amount}}</text></view>
+                </view>
+                <block>
+                    <view wx:if='{{value.orderStatus === "等待付款"}}' class="add-cart yellow" bindtap='pay' id='{{value.order_id}}'  data-index='{{key}}'>立即支付</view>
+                    <view wx:if='{{value.orderStatus === "等待发货"}}' class="add-cart" bindtap='toDetail' id='{{value.order_id}}'>查看详情</view>
+                    <view wx:if='{{value.orderStatus === "等待收货"}}' class="add-cart yellow" id='{{value.order_sn}}' data-invoice_no='{{value.invoice_no}}' data-shippingName='{{value.shipping_name}}' data-addrDetail='{{value.address_detail}}' data-address='{{value.address}}' bindtap='logistics'>追踪物流</view>
+                    <view wx:if='{{value.orderStatus === "交易成功" && value.commented==0}}' class="add-cart" data-item='{{value}}' bindtap='addComment'>评价晒单</view>
+                    <view wx:if='{{value.orderStatus === "交易取消" || (value.orderStatus === "交易成功" && value.commented==1)}}' class="add-cart" bindtap='goBuy'>再次购买</view>
+                </block>
+            </view>
+        </view>
+    </block> 
+</view>
+

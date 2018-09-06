@@ -1,0 +1,187 @@
+page {
+    padding-bottom: 200rpx;
+}
+
+/*card-item*/
+
+.card-item {
+    margin-bottom: 20rpx;
+    overflow: hidden;
+}
+
+.card-item-wrap {
+    display: flex;
+    width: 790rpx;
+    transition: all 0.2s ease 0s;
+}
+
+.card-item-wrap .card-item-con, .card-item-wrap .delete {
+    flex: 0 0 auto;
+}
+
+.card-item-wrap .card-item-con {
+    padding: 60rpx 0;
+    display: flex;
+    width: 690rpx;
+}
+
+.card-item-wrap .delete {
+    background: #ef5350;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100rpx;
+    color: #fff;
+    font-size: 26rpx;
+}
+
+/*card-item-con layout*/
+
+.card-item-con .layout {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*card-item-con select*/
+
+.card-item-con .select {
+    width: 76rpx;
+}
+
+.card-item-con .production-img {
+    width: 195rpx;
+}
+
+.card-item-con .production-img image {
+    width: 100%;
+    border-radius: 6rpx;
+}
+
+/*card-item-con more-info*/
+
+.card-item-con .more-info {
+    padding: 0 30rpx;
+    display: flex;
+    flex-direction: column;
+    width: 359rpx;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+
+
+.card-item-con .more-info .title {
+    color: #424242;
+    font-size: 26rpx;
+}
+
+.card-item-con .more-info .simple {
+    color: #bdbdbd;
+    font-size: 22rpx;
+    margin-top: 15rpx;
+}
+
+.card-item-con .more-info .price-ralate {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*settle-accounts*/
+
+.settle-accounts {
+    position: fixed;
+    bottom: 100rpx;
+    left: 0;
+    background: linear-gradient(to bottom, #fff, #fafafa);
+    display: flex;
+    justify-content: space-between;
+    height: 100rpx;
+    width: 100%;
+    font-size: 22rpx;
+}
+
+.settle-accounts .select, .settle-accounts .price-wrap, .settle-accounts .button {
+    flex: 0 0 auto;
+}
+
+.settle-accounts .select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160rpx;
+    color: #bdbdbd;
+}
+
+.settle-accounts .select image {
+    margin-right: 15rpx;
+}
+
+.settle-accounts .price-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.settle-accounts .button {
+    background: #f9d158;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300rpx;
+    color: #212121;
+    font-size: 28rpx;
+}
+
+.settle-accounts .button.gray {
+    background: #e0e0e0;
+}
+
+.cart-null {
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    color: #212121;
+    font-size: 28rpx;
+}
+
+.cart-null image {
+    width: 404rpx;
+    height: 367rpx;
+}
+
+.cart-null  >view {
+    border: 1rpx solid #e0e0e0;
+    border-radius: 5rpx;
+    margin-top: 75rpx;
+    width: 300rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+
+.production-price {
+    margin-top: 0
+}
+
+.add-subtract {
+    width: 165rpx;
+    align-items: center;
+}
+
+.btnAdd, .btnSubtract {
+    width: 55rpx;
+    height: 55rpx;
+    line-height: 45rpx;
+}
+
+
+.price-wrap .production-price {
+    margin-bottom: 8rpx;
+}

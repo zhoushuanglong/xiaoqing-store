@@ -1,0 +1,59 @@
+<!--addressManage.wxml-->
+<view class="container containerPaddingTop">
+
+    <block wx:if='{{ default_address !== "" || address_list.length > 0 }}'>
+        <block wx:if='{{ default_address != "" }}'>
+            <view class="address-title">默认收货地址</view>
+            <view class='card_container'>
+                <view class='card_wrapper' style="transform: translateX({{default_address.swiperPixel||0}}px)">
+                    <view class="card radius address-item active">
+                        <view class="layout current-item">
+                            <image src="../../img/select-active.jpg"></image>
+                        </view>
+                        <view class="layout address-con">
+                            <text class="name-phone"><text>{{default_address.consignee}}</text>{{default_address.mobileStr}}</text>
+                            <text class="address">{{default_address.address}}</text>
+                        </view>
+                        <view class="layout edit-con" id='default' bindtap='bindedit' data-item='{{default_address}}'>
+                            <image src="../../img/edit-btn.png"></image>
+                            编辑
+                        </view>
+                    </view>
+                    <view class="delete" bindtap="delItem" data-id="{{default_address.address_id}}" data-key='default'>删除</view>
+                </view> 
+            </view>
+        </block>
+
+        <block wx:if='{{ address_list.length > 0 }}'>
+            <view class="address-title">其它收货地址</view>
+            <block wx:for='{{address_list}}' wx:key='{{item.address_id}}' wx:for-index='key'>
+                <view class='card_container' id='{{key}}' bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE">
+                    <view class='card_wrapper' style="transform: translateX({{item.swiperPixel||0}}px)">
+                        <view class="card radius address-item active">
+                            <view class="layout current-item">
+                                <image src="../../img/select-active.jpg"></image>
+                            </view>
+                            <view class="layout address-con">
+                                <text class="name-phone"><text>{{item.consignee}}</text>{{item.mobileStr}}</text>
+                                <text class="address">{{item.address}}</text>
+                            </view>
+                            <view class="layout edit-con" id='other' bindtap='bindedit' data-item='{{item}}'>
+                                <image src="../../img/edit-btn.png"></image>
+                                编辑
+                            </view>
+                        </view>
+                        <view class="delete" bindtap="delItem" id="{{item.address_id}}" data-key='{{key}}'>删除</view>
+                    </view>
+                </view>
+            </block>
+        </block>
+    </block>
+    <block wx:if='{{ address_list === "" && default_address === "" }}'>
+        <image class='address-null' src='../../img/address-null.png'/>
+    </block>
+
+</view>
+
+<view class="button-large add-address-btn" bindtap='toedit'>
+    添加地址
+</view>

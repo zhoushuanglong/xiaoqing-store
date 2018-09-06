@@ -1,0 +1,28 @@
+<view class="container containerPaddingTop">
+    <block wx:if='{{coupons.length > 0}}'>
+        <block  wx:for='{{coupons}}' wx:key='{{key}}' wx:for-index='key'>
+            <view class='panel'>
+                <image class='bgImg' src='../../img/discount-bg-active.png'></image>  
+                <view class='panel-left panel-item'>
+                    <view class='price'><text class='symbol'>¥</text>{{item.cou_money}}</view>
+                    <view class='desc'>满{{item.cou_man}}减{{item.cou_money}}</view>
+                </view>
+                <view class='panel-middle panel-item'>
+                    <view class='desc-top'>{{item.cou_money}}元小青{{item.cou_type}}</view>
+                    <view class='desc-middle'>{{item.cou_goods_name}}</view>
+                    <view class='desc-botttom'><text>有效期：</text>{{item.cou_end_time}}</view>
+                </view>
+                <view class='panel-right panel-item' bindtap='useCoupon' id='{{item.uc_id}}'>
+                    <text>立</text>
+                    <text>即</text>
+                    <text>使</text>
+                    <text>用</text>
+                </view>
+            </view>
+        </block>
+    </block>
+    <block wx:else>
+        <image mode='widthFix' class='cou-null' src='../../img/cou-null.png'/>
+    </block>
+    <view  class='button-large disabled' bindtap='cancel'>不使用优惠券</view>
+</view>

@@ -1,0 +1,90 @@
+/**user.wxss**/
+
+.user-conter-wrap {
+    margin-top: 50rpx;
+}
+
+.userinfo {
+    background: #424242;
+    padding: 0 75rpx;
+    height: 195rpx;
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative
+}
+
+.userinfo button {
+    background: transparent;
+    border: 1rpx solid #f9d158;
+    margin: 0;
+    color: #f9d158;
+    padding: 25rpx 45rpx;
+    font-size: 32rpx;
+    line-height: 1;
+}
+
+.userinfo-bg {
+    position: absolute;
+    width: 290rpx;
+    right: 30rpx;
+    bottom: 0;
+}
+
+.userinfo-avatar {
+    width: 135rpx;
+    height: 135rpx;
+    margin-right: 45rpx;
+    border-radius: 50%;
+}
+
+.userinfo-nickname {
+    color: #f9d158;
+    font-size: 32rpx;
+    font-weight: bold;
+}
+
+/*user-center*/
+
+.user-center {
+    margin-bottom: 32rpx;
+    padding: 30rpx 40rpx;
+}
+
+.user-center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-center image:first-child {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.user-center image:last-child {
+    height: 25rpx;
+    width: 15rpx;
+}
+
+.user-center text {
+    flex:1;
+    margin-left: 75rpx;
+    color: #212121;
+    font-size: 32rpx;
+}
+
+.user-center:nth-child(2) image:first-child {
+    height: 40rpx;
+    width: 30rpx;
+}
+
+.user-center:last-child image:first-child {
+    height: 30rpx;
+    width: 28rpx;
+}
+
+.container navigator:last-child {
+    margin-top: 62rpx;
+}

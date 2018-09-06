@@ -1,0 +1,78 @@
+<import src="../../templates/nav.wxml" />
+<template is="nav" data="{{active:'index'}}" />
+
+<swiper 
+    id='home'
+    class="production-show" 
+    autoplay = "true"
+    circular = 'true'
+>
+    <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+        <swiper-item  bindtap='toDetail' url="../detail/detail">
+            <image  mode="widthFix" src="{{item.img_url}}" />
+        </swiper-item>
+    </block>
+</swiper>
+
+<view class='productList'>
+    <view wx:for='{{list}}' wx:key='{{index}}' wx:for-index='index' class='panel' bindtap='toDetail'>
+        <image src='{{item.img_url}}' mode='widthFix'/>
+        <view class='desc'>
+            <view class='name'>{{item.name}}</view>
+            <view class='color' wx:if='{{item.color}}'>{{item.color}}</view>
+            <view class='colors' wx:else>
+                <block wx:for='{{item.colors}}' wx:for-item='d' wx:for-index='i' wx:key='{{i}}'>
+                    <text wx:if='{{i !== 1}}'>{{d}}</text>
+                    <image wx:else src='{{d}}' mode='widthFix'/>
+                </block>
+            </view>
+            <view class='price'>
+                <view class='pric'>¥<text>{{item.price}}</text></view>
+                <view wx:if='{{item.oPrice}}' class='oPric'>¥<text>{{item.oPrice}}</text><view class='line'></view></view>
+            </view>
+            <view class='other'>{{item.desc}}</view>
+        </view>
+    </view>
+</view>
+
+<view class='modal'  wx:if='{{error == 0 && show}}'>
+    <view class='content'>
+       <image class='close' src="../../img/modal_close.png" bindtap='close'/>
+       <text class='title'>您的专属福利</text>
+       <view class='card1'>
+            <image src="../../img/modal_bg_gray.png" />
+            <view class='price'>
+                ¥<text>{{couInfo.cou_money}}</text>
+            </view>
+            <view class='type'>
+                {{couInfo.cou_title}} 
+            </view>
+            <view class='deadline'>
+                有效期至：{{couInfo.cou_end_time}}
+            </view>
+       </view>
+       <view class='footer'>感谢您对小青的支持</view>
+    </view>
+</view>
+<block wx:else>
+    <view class='modal'  wx:if='{{!isOverTime && show && first === 0}}'>
+        <view class='content'>
+        <image class='close' src="../../img/modal_close.png" bindtap='close'/>
+        <text class='title'>您的专属福利</text>
+        <view class='card1 pink'>
+                <image src="../../img/modal_bg_pink.png" />
+                <view class='price'>
+                    ¥<text>300</text>
+                </view>
+                <view class='type'>
+                    预订优惠券 
+                </view>
+                <view class='deadline'>
+                    有效期至：2018年2月25日
+                </view>
+        </view>
+        <view class='footer'>感谢您对小青的支持</view>
+        </view>
+    </view>
+</block>
+

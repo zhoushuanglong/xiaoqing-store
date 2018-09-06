@@ -1,0 +1,18 @@
+<!--user.wxml-->
+
+<view class="container containerPaddingTop">
+    <view class="card radius help-item">
+        <view class="help-item-title">常见问题</view>
+        <block wx:for='{{helpList}}' wx:for-index='key' wx:key='{{key}}'>
+            <view data-info='{{item}}' bindtap='toHelpDetail'>{{item.title}}</view>
+        </block>
+        <view wx:if='{{flag}}' class="check-more" bindtap='readMore'>查看更多</view>
+    </view>
+    <button class="server card radius user-center" open-type="contact">
+        <view>
+            <image mode='widthFix' class='contact' src="../../img/help-center-ear.png"></image>
+            <text>联系客服</text>
+        </view>
+        <image src="../../img/arrow-right-more.png"></image>
+    </button>
+</view>

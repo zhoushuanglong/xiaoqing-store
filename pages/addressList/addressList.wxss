@@ -1,0 +1,89 @@
+/**addressList.wxss**/
+
+.address-item {
+    margin-bottom: 20rpx;
+    padding: 20rpx 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-item .layout {
+    flex: 0 0 auto;
+}
+
+.address-item.active .current-item {
+    display: none;
+}
+
+.address-item.active .address-con {
+    padding-left: 20rpx;
+    width: 560rpx;
+}
+
+/*.current-item */
+
+.address-item .current-item {
+    width: 90rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address-item .current-item image {
+    height: 24rpx;
+    width: 31rpx;
+}
+
+/*address-con*/
+
+.address-item .address-con {
+    display: flex;
+    flex-flow: wrap;
+    align-content: space-between;
+    width: 470rpx;
+}
+
+.address-item .address-con .name-phone {
+    width: 100%;
+    color: #424242;
+    font-size: 28rpx;
+    font-weight: bolder;
+}
+
+.address-item .address-con .name-phone text {
+    font-weight: bold;
+    margin-right: 23rpx;
+}
+
+.address-item .address-con .address {
+    width: 100%;
+    color: #424242;
+    font-size: 22rpx;
+}
+
+/*edit-con*/
+
+.address-item .edit-con {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    flex-flow: wrap;
+    justify-content: center;
+    border-left: 1rpx solid #bdbdbd;
+    height: 90rpx;
+    width: 70rpx;
+    color: #424242;
+    font-size: 22rpx;
+}
+
+.address-item .edit-con image {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.address-null {
+    width: 419rpx;
+    height: 487rpx;
+    display:block;
+    margin: 120rpx auto 0;
+}

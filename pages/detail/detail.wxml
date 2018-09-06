@@ -1,0 +1,158 @@
+<view class="detail-main">
+    <scroll-view scroll-y style="height: {{pageHeight}}px;">
+        <!--banner-->
+        <view class='swiper-container'>
+            <swiper 
+                id='home'
+                class="production-show" 
+                autoplay = "true"
+                circular = "true"
+                current='{{activeIndex}}'
+                bindchange="indexChange"
+            >
+                <block wx:for="{{imgUrls}}" wx:key="{{index}}">
+                    <swiper-item id='{{item.goods_id}}' bindtap='toDetail' url="../detail/detail">
+                        <image  mode="widthFix" src="{{item.img_url}}" />
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class='pagenationBox'>
+                <view>{{imgUrls[activeIndex].desc}}</view>
+                <view>
+                    <view wx:for="{{imgUrls}}" wx:key="{{index}}" class='{{activeIndex === index ? "active" : ""}} wrap' style='border: 1rpx solid {{item.color}}'>
+                        <text style='background:{{item.color}}'></text>
+                    </view>
+                </view>
+            </view>
+         </view>
+
+        <view class="production-simple-intro">
+            <view class="title">{{goods_name}} <text class='red' wx:if='{{!isOverDeadLine}}'>3月31日前发货</text></view>
+            <view class="intro">{{goodsDetail.sample}}</view>
+            <view class="price">
+                <block wx:if='{{goods_price !== marketPrice}}'>  
+                    <text>￥</text>{{goods_price}} ~ {{marketPrice}}
+                </block>
+                <block wx:else>
+                    <text>￥</text>{{goods_price}}
+                </block>
+            </view>
+        </view>
+
+        <view wx:if='{{good_comment[0]}}' class='comment-panel'>
+            <view class='comment-title'>
+                <text>用户评价（{{good_comment.total}}）</text>
+                <view bindtap='toComentList'>
+                    查看全部评价
+                    <image mode='widthFix' src='../../img/arrow-right-more.png'/>
+                </view>
+            </view>
+            <block wx:for='{{[good_comment[0]]}}' wx:key='{{key}}' wx:for-index='key' wx:for-item='val'>
+                <view class='panel'>
+                    <view class='userInfo'>
+                        <image src='{{val.user_picture}}'></image>
+                        <text>{{val.username}}</text>
+                    </view>
+                    <view class='content'>{{val.content}}</view>
+                    <view class='imgContainer' wx:if='{{good_comment[key].thumb && good_comment[key].thumb.length > 0}}'>
+                        <block wx:for='{{good_comment[key].thumb}}' wx:key='{{index}}' wx:for-index='index'>
+                            <image mode='aspectFill' id='{{item}}' data-imgarr='{{good_comment[key].thumb}}' bindtap='previewImages' src='{{item}}'></image>
+                        </block> 
+                    </view>
+                    <view class='otherInfo'>
+                        <text>规格 | 小青音响({{val.colors}})</text>
+                        <text>{{val.add_show_time}}</text>
+                    </view>
+                    <view class='service' wx:if='{{ val.re_content }}'>
+                        <text>小青客服：</text>
+                        <text>
+                            {{val.re_content}}
+                        </text>
+                    </view>
+                </view>
+            </block>
+        </view>
+
+        <!--介绍与规格标题-->
+        <view class="production-detail-title">
+            <view class="{{introActive === 0 ? 'active' : ''}}" bindtap='introTitleTap' id='0'>商品介绍
+                <span/>
+            </view>
+            <view class="{{introActive === 1 ? 'active' : ''}}" bindtap='introTitleTap' id='1'>商品规格
+                <span/>
+            </view>
+        </view>
+
+        <!--介绍与规格内容-->
+        <swiper id="132" current='{{introActive}}' class="production-detail-con" bindchange="introChange" style="height:{{heightDetailImg[imgIdArr[introActive]]}}px;">
+            <swiper-item>
+                <view>
+                     <video 
+                        id='myVideo'
+                        show-fullscreen-btn='{{true}}'
+                        show-center-play-btn='{{true}}'
+                        style='top:{{goodsDetail.descArr[0]}}rpx'
+                        src='http://tdl01.8864.com/lkcps/WeChatSight649.mp4'
+                        poster='https://wx.lanxiaoqing.com/data/gallery_album/3/original_img/1516755147851282042.jpg'
+                        objectFit='cover'
+                    >   
+                    </video>
+                    <image id="proIntro" mode="widthFix" bindload="imageLoad" src="{{goodsDetail.proImg[0]}}" />
+                </view>
+            </swiper-item>
+            <swiper-item>
+                <view>
+                    <image id="proRule" mode="widthFix" bindload="imageLoad" src="{{goodsDetail.proImg[1]}}" />
+                </view>
+            </swiper-item>
+        </swiper>
+        <!-- <view class='more-wrap'>
+            <view class='more' bindtap='toRetailshop'>
+                <view>线下零售体验店</view>
+                <view>
+                    <text>深圳／杭州／厦门...</text>
+                    <image mode='widthFix' src='../../img/arrow-right-more.png'/> 
+                </view>
+            </view>
+        </view> -->
+    </scroll-view>
+
+    <!--底部浮动层-->
+    <view wx:if='{{attr_number === 0}}' class='lackGood'>缺货</view>
+    <view wx:else class="buy-cart">
+        <view bindtap='toCart'>
+            <image src="../../img/nav-cart.png" />
+            <text>{{goodsDetail.cartNum}}</text>
+        </view>
+        <view id='add' bindtap='selectModalShow'>添加至购物车</view>
+        <view id='buy' bindtap='selectModalShow'>立即购买</view>
+    </view>
+
+    <view class='selectModal' animation='{{animationData}}'>
+        <image class='close' src='../../img/close.png'  bindtap='hideModal'/>
+        <view class='base-info'>
+            <image src='{{goodsDetail.specification[key].img_url}}'/>
+            <view class='attr'>
+                <view>{{goods_name}}</view>
+                <view><text>¥</text><text>{{selectAmount}}</text></view>
+                <view>{{goodsDetail.specification[key].color}}</view>
+            </view>
+        </view>
+        <view class='title'>颜色</view>
+        <view class='colors'>
+            <view wx:for='{{goodsDetail.specification}}' wx:key='{{key}}' wx:for-index='index' id='{{index}}' class='opt-color {{key === index ? "active" : ""}}' bindtap='selectColor'>{{item.color}}</view>
+        </view>
+        <view class='title'>数量</view>
+        <view class='count'>
+            <view id='remove' bindtap='count'>-</view>
+            <input class='number' value='{{slectNum}}' type='number' id='input' bindblur='count' />
+            <view id='add' bindtap='count'>+</view>
+        </view>
+        <view wx:if='{{attr_num === 0}}' class='submit gray'>缺货</view>
+        <block wx:else>
+            <view wx:if='{{is_on_sale === 0}}' class='submit gray'>商品已下架</view>
+            <view wx:else class='submit' bindtap='submit'>确定</view>
+        </block>
+    </view>
+    <view class='mask'  style='height:{{windowheight + "px"}};z-index:{{showModal ?  1001 : -1}};opacity:{{showModal ? 1 : 0}}' bindtap='hideModal'></view>
+</view>

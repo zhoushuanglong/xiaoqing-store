@@ -1,0 +1,165 @@
+/**paySettle.wxss**/
+
+.container {
+    padding-bottom: 240rpx
+}
+
+.container.active {
+    padding-bottom: 170rpx
+}
+
+.pay-settle {
+    margin-bottom: 15rpx;
+    padding: 30rpx 40rpx;
+}
+
+
+
+/*production-info*/
+
+.pay-settle .production-info {
+    margin-top: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.pay-settle .production-info:not(:last-of-type){
+    padding-bottom: 30rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+}
+
+.pay-settle .production-info .layout {
+    flex: 0 0 auto;
+}
+
+.pay-settle .production-info .production-img {
+    width: 105rpx;
+}
+
+.pay-settle .production-info .production-img image {
+    height: 105rpx;
+    width: 100%;
+    border-radius: 6rpx;
+}
+
+.pay-settle .production-info .production-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 450rpx;
+}
+
+.pay-settle .production-info .pro-intro-title {
+    width: 100%;
+    color: #424242;
+    font-size: 28rpx;
+    font-weight: bold;
+}
+
+.pay-settle .production-info .pro-intro-simple {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: #424242;
+    font-size: 22rpx;
+    line-height: 28rpx;
+}
+
+.pay-settle .production-info .pro-intro-simple .production-price {
+    margin-top: 0;
+    color: #ef5350;
+    font-size: 38rpx;
+}
+
+
+.pay-settle .production-info .pro-intro-simple .production-price text {
+    margin-top: 12rpx;
+}
+
+/*配送，清单*/
+
+.pay-settle.flex view {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #424242;
+    font-size: 22rpx;
+}
+
+.pay-settle .discount {
+    font-weight: bold
+}
+
+.pay-settle .mr30 {
+    margin-right: 30rpx;
+    font-weight:normal
+}
+
+.pay-settle.flex .pay-settle-title {
+    color: #757575;
+    font-size: 32rpx;
+    margin-bottom: 20rpx;
+}
+
+.pay-settle view image {
+    height: 25rpx;
+    width: 15rpx;
+}
+
+/*价格*/
+
+.pay-detail .pay-settle-title {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    line-height: 58rpx;
+    color: #757575;
+}
+
+.pay-detail .pro-pay .production-price,
+.pay-detail .transport-pay .production-price {
+    color: #424242;
+    font-size: 38rpx;
+    font-weight: normal;
+    margin-top:0;
+}
+
+.pay-detail .real-pay .pay-settle-title {
+    margin-bottom: 0;
+}
+.pay-detail .real-pay  {
+    color: #ef5350;
+}
+.pay-detail .real-pay .production-price {
+    font-size: 38rpx;
+    color: #ef5350;
+    margin-top:0;
+}
+
+/*pay-tips*/
+
+.pay-tips {
+    position: fixed;
+    bottom: 170rpx;
+    left: 0;
+    padding: 15rpx 0;
+    background: #f9d158;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: #212121;
+    font-size: 20rpx;
+}
+
+.pay-tips image {
+    margin-right: 10rpx;
+    height: 23rpx;
+    width: 23rpx;
+}
+
+.wx-pay-btn {
+    background: #5fbf3f;
+    color: #fff;
+}

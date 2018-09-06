@@ -1,0 +1,56 @@
+<!--user.wxml-->
+<import src="../../templates/nav.wxml" />
+<template is="nav" data="{{active:'user'}}" />
+
+<view class="userinfo">
+    <image src='../../img/user-bg.png' mode='widthFix' class='userinfo-bg'/>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+        获取头像昵称
+    </button>
+    <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" id='{{userInfo.avatarUrl}}' background-size="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+</view>
+
+<view class="container containerPaddingTop user-conter-wrap">
+    <navigator url="../myOrder/myOrder">
+        <view class="card radius user-center">
+            <image mode='widthFix' src="../../img/order-detail-order.png"></image>
+            <text>我的订单</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="../addressManage/addressManage">
+        <view class="card radius user-center">
+            <image mode='widthFix' src="../../img/order-detail-position.png"></image>
+            <text>地址管理</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="../discountManage/discountManage">
+        <view class="card radius user-center">
+            <image mode='widthFix' src="../../img/coupons.png"></image>
+            <text>优惠券管理</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </navigator>
+
+    <navigator url="../help/help">
+        <view class="card radius user-center">
+            <image mode='widthFix' src="../../img/order-detail-msg.png"></image>
+            <text>帮助中心</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </navigator>
+
+    <navigator wx:if='{{hasUserInfo && rank == "11"}}' url="../send/send">
+        <view class="card radius user-center">
+            <image mode='widthFix' src="../../img/order-detail-msg.png"></image>
+            <text>发放vip券</text>
+            <image src="../../img/arrow-right-more.png"></image>
+        </view>
+    </navigator>
+</view>

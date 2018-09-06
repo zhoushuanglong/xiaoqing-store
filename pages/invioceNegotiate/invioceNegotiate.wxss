@@ -1,0 +1,30 @@
+text {
+    display:block; 
+}
+
+text.title {
+    color: #212121;
+    margin-bottom: 15rpx;
+}
+
+.paragraph {
+    display: flex;
+    justify-content: space-between;
+    font-size: 28rpx;
+    line-height: 38rpx;
+    margin-top:50rpx;
+    color: #757575;
+}
+
+.paragraph view:first-of-type {
+    color: #212121;
+    width: 45rpx;
+}
+
+.paragraph view:last-of-type {
+    flex:1;
+}
+
+.container {
+    padding-bottom: 180rpx;
+}

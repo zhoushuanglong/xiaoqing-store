@@ -1,0 +1,40 @@
+<!--addressEdit.wxml-->
+<view class="container containerPaddingTop">
+    <form>
+        <view class="card radius address-edit">
+            <view class="address-eidt-title">个人信息</view>
+            <view class='wrap'>
+                <label catchtap='focus' id='focus_consignee'>收货人姓名:</label>
+                <input focus='{{focus_consignee}}' type='text' value='{{consignee}}' id='consignee' bindinput='bindinput'></input>
+            </view>
+            <view class='wrap'>
+                <label catchtap='focus' id='focus_mobile'>手机号码:</label>
+                <input focus='{{focus_mobile}}' type='number' value='{{mobile}}' id='mobile' bindinput='bindinput'></input>
+            </view>
+        </view> 
+
+        <view class="card radius address-edit">
+            <view class="address-eidt-title">收货地址</view>
+            <picker bindchange='bindProvinceChange' value='{{province_region_id}}' range='{{province_region_names}}'>
+                <view><label>省份:</label>{{province_region_names[province_index]}}</view>
+            </picker>
+            <picker bindchange='bindCityChange' value='{{city_region_id}}' range='{{city_region_names}}'>
+                <view><label>城市:</label>{{city_region_names[city_index]}}</view>
+            </picker>
+            <picker bindchange='bindDistrictChange' value='{{district_region_id}}' range='{{district_region_names}}'>
+                <view><label>区县:</label>{{district_region_names[district_index]}}</view>
+            </picker>
+            <view class='wrap'>
+                <label catchtap='focus' id='focus_address'>街道地址:</label>
+                <input focus='{{focus_address}}' type='text'  value='{{address}}' id='address' bindinput='bindinput'></input>
+            </view>
+        </view>
+        
+        <view class="set-default-address" bindtap='bindCheckChange' wx:if='{{flag}}'>
+            <image src="{{checked === 1 ? '../../img/select-default-active.jpg' : '../../img/select-default.jpg'}}"></image>
+            <text>设为默认收获地址</text>
+        </view>
+    </form>
+</view>
+
+<view class="button-large sure-modify" bindtap='bindSubmit'>确认{{address_id ? '修改' : '添加'}}</view>

@@ -1,0 +1,39 @@
+/**addressManage.wxss**/
+@import "../addressList/addressList";
+
+.address-title {
+    margin-bottom: 5rpx;
+    padding-left: 20rpx;
+    color: #bdbdbd;
+    font-size: 22rpx;
+}
+
+.card_container {
+    width: 690rpx;
+    overflow: hidden;
+}
+
+.card_wrapper {
+    display: flex;
+    justify-content:space-between;
+    margin-bottom: 20rpx;
+    width:790rpx;
+}
+.card {
+    align-content:space-between;
+    margin-bottom:0rpx;
+    width:690rpx;
+}
+
+.delete {
+    flex: 0 0 auto;
+    align-content:space-between;
+    background: #ef5350;
+    display: flex;
+    box-sizing: content-box;
+    align-items: center;
+    justify-content: center;
+    width: 100rpx;
+    color: #fff;
+    font-size: 26rpx;
+}

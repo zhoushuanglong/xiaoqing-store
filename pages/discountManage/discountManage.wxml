@@ -1,0 +1,42 @@
+<view class="container containerPaddingTop">
+    <block wx:if='{{coupons.length === 0}}'>
+        <image class='cou-null' src='../../img/cou-null.png'/>
+    </block>
+    <block wx:else>
+        <block wx:for='{{coupons}}' wx:key='{{key}}' wx:for-index='key'>
+            <view class='panel {{item.is_use === "1" || item.isOverdue ? "disable" : ""}}'>
+                <image wx:if="{{item.is_use === '0' && !item.isOverdue}}" class='bgImg' src='../../img/discount-bg-active.png'></image>  
+                <image wx:else class='bgImg' src='../../img/discount-bg.png'></image>  
+                <view class='panel-left panel-item'>
+                    <view class='price'><text class='symbol'>¥</text>{{item.cou_money}}</view>
+                    <view class='desc'>满{{item.cou_man}}减{{item.cou_money}}</view>
+                </view>
+                <view class='panel-middle panel-item'>
+                    <view class='desc-top'>{{item.cou_money}}元小青{{item.cou_type}}</view>
+                    <view class='desc-middle'>{{item.cou_goods_name}}</view>
+                    <view class='desc-botttom'><text>有效期：</text>{{item.endtime}}</view>
+                </view>
+                <view wx:if='{{item.is_use === "0" && !item.isOverdue}}' class='panel-right panel-item' bindtap='useCoupon' id='{{item.uc_id}}'>
+                    <text>立</text>
+                    <text>即</text>
+                    <text>使</text>
+                    <text>用</text>
+                </view>
+                <block wx:else>
+                    <view wx:if='{{item.is_use === "1"}}' class='panel-right panel-item' >
+                        <text>已</text>
+                        <text>经</text>
+                        <text>使</text>
+                        <text>用</text>
+                    </view>
+                    <view wx:else class='panel-right panel-item' >
+                        <text>已</text>
+                        <text>经</text>
+                        <text>过</text>
+                        <text>期</text>
+                    </view>
+                </block>  
+            </view>
+        </block>
+    </block>
+</view>

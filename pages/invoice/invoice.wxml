@@ -1,0 +1,49 @@
+<view class='container'>
+    <view class='panel'>
+        <label>发票类型</label>
+        <view class='tab'>
+            <view class='mr45 {{inv_type==="0" ? "active" : ""}}' id='普通发票' bindtap='switch'>普通发票</view>
+            <view class='{{inv_type==="1" ? "active" : ""}}' id='电子普票' bindtap='switch'>电子普票</view>
+        </view>
+        <view class='mt30'>{{type}}</view>
+    </view>
+    <view class='panel'>
+        <label>发票抬头</label>
+        <view class='tab'>
+            <view class='mr45 {{inv_personal === "0" ? "active" : ""}}' id='个人' bindtap='switch'>个人</view>
+            <view class='{{inv_personal === "1" ? "active" : ""}}' id='单位' bindtap='switch'>单位</view>
+        </view>
+        <view wx:if='{{inv_personal === "0"}}' class='mt30'>个人</view>
+        <block class='owner' wx:else>
+            <view class='owner'>
+                <text>单位名称：</text><input value='{{inv_payee}}' type='text' id='inv_payee' bindinput='textChange'/>
+            </view>
+            <view class='owner'>
+                <text>纳税人识别号码：</text><input value='{{tax_id}}' type='text' id='tax_id' bindinput='textChange'/>
+            </view>
+        </block>
+    </view>
+    <view class='panel'>
+        <label>发票内容</label>
+        <view>
+            {{content}}
+        </view>
+        <view class='mt30 price'>金额：<text>¥</text><text>{{amount}}</text></view>
+    </view>
+    <view class='panel' wx:if='{{inv_type === "1"}}'>
+        <label>收票人信息</label>
+        <view>
+            <text>收票人手机：</text><input value='{{phone}}' type='number' id='phone' bindinput='textChange'/>
+        </view>
+        <view class='mt30'>
+            <text>收票人邮箱：</text><input value='{{email}}' type='text' id='email' bindinput='textChange'/>
+        </view>
+    </view>
+    <view class='negotiate' bindtap='toNegotiate'>
+        <view></view>
+        <view>发票须知</view>
+        <view></view>
+    </view>
+</view>
+
+<view class="button-large sure-modify" bindtap='bindSubmit'>确定</view>

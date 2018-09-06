@@ -1,0 +1,34 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/help/help",
+        "pages/helpDetail/helpDetail",
+        "pages/user/user",
+        "pages/myOrder/myOrder",
+        "pages/orderDetail/orderDetail",
+        "pages/addressEdit/addressEdit",
+        "pages/addressManage/addressManage",
+        "pages/addressList/addressList",
+        "pages/paySettle/paySettle",
+        "pages/cart/cart",
+        "pages/detail/detail",
+        "pages/discount/discount",
+        "pages/discountManage/discountManage",
+        "pages/commentEdit/commentEdit",
+        "pages/commentList/commentList",
+        "pages/logistics/logistics",
+        "pages/invoice/invoice",
+        "pages/invioceNegotiate/invioceNegotiate",
+        "pages/retailshop/retailshop",
+        "pages/send/send"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTextStyle": "black",
+        "navigationBarTitleText": "小青生活馆",
+        "backgroundColor": "#fafafa",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": false,
+        "onReachBottomDistance": "50"
+    }
+}

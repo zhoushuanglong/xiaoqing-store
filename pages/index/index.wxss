@@ -1,0 +1,209 @@
+page {
+    background: #eff2f5;
+    padding: 0 0 120rpx;
+    box-sizing: border-box;
+}
+
+
+.production-show {
+    width: 750rpx;
+    height: 442rpx;
+}
+
+.production-show image {
+    width: 750rpx;
+}
+
+.productList {
+    padding: 13rpx;
+    overflow: hidden;
+}
+
+.productList .panel:nth-of-type(odd) {
+    float:left;
+}
+
+.productList .panel:nth-of-type(even) {
+    float:right;
+}
+
+.productList .panel:not(:nth-of-type(-n + 2)) {
+    margin-top: 10rpx;
+}
+
+.productList .panel {
+    width: 357rpx;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.productList .panel>image {
+     width: 357rpx;
+}
+
+.productList .panel .desc {
+    padding: 17rpx 20rpx;
+    line-height: 1;
+}
+
+.productList .panel .name {
+    font-size: 26rpx;
+}
+
+.productList .panel .other {
+    font-size: 22rpx;
+    background: #b52530;
+    color: #fff;
+    width: 100rpx;
+    height: 34rpx;
+    line-height: 34rpx;
+    border-radius: 5rpx;
+    text-align: center;
+}
+
+.productList .panel .colors, .productList .panel .color {
+    font-size: 24rpx;
+    color: #858585;
+    margin: 10rpx 0 14rpx;
+    line-height: 34rpx;
+}
+
+.productList .panel .colors  {
+    line-height: 1;
+}
+
+.productList .panel .colors image {
+    width: 60rpx;
+    vertical-align: middle;
+}
+
+.productList .panel .price {
+    font-size: 22rpx;
+    margin-bottom: 14rpx;
+}
+
+.productList .panel .price view {
+    display: inline-block;
+}
+
+.productList .panel .price .pric {
+    color: #b52530;
+}
+
+.productList .panel .price .pric text {
+    font-size: 30rpx;
+}
+
+.productList .panel .price view text {
+    margin-left: 5rpx;
+}
+
+.productList .panel .price .oPric {
+    margin-left: 17rpx;
+    color: #919191;
+    position: relative;
+}
+
+.productList .panel .price .oPric .line {
+    width: 110%;
+    height: 0;
+    position: absolute;
+    left: -5%;
+    top: 10rpx;
+    border-bottom: 1rpx solid #919191;
+}
+
+.modal {
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 10003;
+}
+
+.modal .content {
+    width: 560rpx;
+    height: 662rpx;
+    box-sizing: border-box;
+    padding: 60rpx 35rpx 34rpx;
+    background: #fff;
+    border-radius: 15rpx;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.modal .content .close {
+    position: absolute;
+    right: 0;
+    top: -60rpx;
+    width: 42rpx;
+    height: 42rpx;
+}
+
+.modal .content .title {
+    color: #b7975d;
+    font-size: 57rpx;
+}
+
+.modal .content .card1 {
+    position: relative;
+    width: 100%;
+    height: 258rpx;
+    margin-top: 50rpx;
+    line-height: 1;
+    color: #b7975d;
+}
+
+.modal .content .card1.pink {
+    color: #fff;
+}
+
+.modal .content .card1.pink .deadline {
+    color: #f6a5c3;
+}
+
+.modal .content .card1 image {
+    width: 100%;
+    height: 100%;
+}
+
+.modal .content .card1 .price {
+    position: absolute;
+    left: 34rpx;
+    top: 30rpx;
+    font-size: 40rpx;
+}
+
+.modal .content .card1 .price text {
+    font-size: 80rpx;
+    margin-left: 15rpx;
+}
+
+.modal .content .card1 .type {
+    color: #fff;
+    font-size: 36rpx;
+    position: absolute;
+    right: 33rpx;
+    bottom: 58rpx;
+}
+
+.modal .content .card1 .deadline {
+    font-size: 22rpx;
+    right: 30rpx;
+    bottom: 23rpx;
+    position: absolute;
+}
+
+.modal .content .footer {
+    position: absolute;
+    bottom: 32rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #868485;
+    font-size: 24rpx;
+}

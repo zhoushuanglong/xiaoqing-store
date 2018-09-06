@@ -1,0 +1,31 @@
+<view class='wrap'>
+    <view class='orderInfo'>
+        <text>物流单号：{{invoice_no}}</text>
+        <text>快递物流：{{shippingname || '顺丰速递'}}</text>
+    </view>
+    <view class='detail' style='min-height: {{pageHeight}}px'>
+        <view class='address'>
+            <image src='../../img/shipping-location.png'/>
+            <view>【收货地址】{{addrdetail}} {{address}}</view>
+        </view>
+        <block wx:if='{{success && data.length > 0}}'>
+            <block wx:for='{{data}}' wx:for-index='key' wx:key='{{key}}'>
+                <view class='shipping-detail'>
+                    <image wx:if='{{key === 0 && state === "3"}}' src='../../img/shipping-checked.png' class='bigDot'/>
+                    <block wx:else>
+                        <image wx:if='{{key === 0 && state !== "3"}}' src='../../img/shipping-checked.png' class='bigDot'/>
+                        <image wx:else src='../../img/shipping-dot.png' class='dot'/>
+                    </block>
+                    <view>
+                        <view wx:if='{{item.hasPhoneNumber}}'>{{item.phoneBefore}}<text class='phone' id='{{item.phoneNumber}}' bindtap='call'>{{item.phoneNumber}}</text>{{item.phoneAfter}}</view>
+                        <view wx:else>{{item.AcceptStation}}</view>
+                        <view class='timeStr'>{{item.AcceptTime}}</view>
+                    </view>
+                </view>
+            </block>
+        </block>
+        <block wx:if='{{ success === false || data === ""}}'>
+            <view class='shipping-detail'><view>物流单暂无结果</view></view>
+        </block>
+    </view>
+</view>

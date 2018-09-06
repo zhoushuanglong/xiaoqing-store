@@ -1,0 +1,75 @@
+.imgContainer, .prodShow  {
+    padding: 15rpx;
+    background: #fff;
+    border-radius: 10rpx;
+    border: 1px solid #eee;
+}
+
+.prodShow {
+    display: flex;
+    align-items: center;
+    margin-bottom: 60rpx;
+}
+
+.prodShow image {
+    width: 149rpx;
+    margin-right: 60rpx;
+}
+
+.prodShow view {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.prodShow view text:first-of-type {
+    font-size: 26rpx;
+    color: #424242;
+    margin-bottom: 30rpx;
+}
+
+.prodShow image, .prodShow view text:last-of-type {
+    font-size: 22rpx;
+    color: #bdbdbd;
+}
+
+textarea {
+    font-size: 24rpx;
+    line-height: 38rpx;
+    height: 190rpx;
+    width: 100%;
+    margin-bottom: 25rpx;
+}
+
+.imgContainer {
+    font-size: 0
+}
+
+.imgContainer image, .imgContainer .wrap{
+    width: 127rpx;
+    height: 127rpx;
+}
+
+.imgContainer .wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.imgContainer .deleteIcon {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: -15rpx;
+    top: -15rpx;
+    z-index: 3;
+}
+
+.imgContainer .wrap:not(:nth-of-type(4n+4)) {
+    margin-right: 50rpx;
+}
+
+
+
+
+

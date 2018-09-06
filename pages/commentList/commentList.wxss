@@ -1,0 +1,85 @@
+.container {
+    padding-bottom: 30rpx;
+}
+
+.panel:not(:last-of-type) {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.panel {
+    padding: 30rpx 0;
+    font-size: 24rpx;
+}
+
+.panel .content, .panel .imgContainer, .panel .otherInfo {
+    padding-left: 90rpx
+}
+
+
+.panel .userInfo image{
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+}
+
+.panel .userInfo text {
+    color: #212121;
+    margin-left: 30rpx;
+    font-weight: 700;
+}
+
+.panel .userInfo text, .panel .userInfo image {
+    vertical-align: middle;
+}
+
+.panel .content {
+    line-height: 36rpx;
+    color: #212121;
+}
+
+.panel .otherInfo {
+    color: #bdbdbd;
+    display: flex;
+    margin-top: 34rpx;
+}
+
+.panel .otherInfo text:last-of-type {
+    color: #757575;
+}
+
+.panel .otherInfo text:first-of-type {
+    flex:1;
+}
+
+.panel .otherInfo text:last-of-type {
+    text-align: right;
+}
+
+.panel .imgContainer {
+    margin-top: 24rpx;
+}
+
+.panel .imgContainer image {
+    width: 127rpx;
+    height: 127rpx;
+}
+
+.panel .imgContainer image:not(:nth-of-type(4n+4)) {
+    margin-right: 30rpx;
+}
+
+.panel .service {
+    padding: 28rpx 15rpx;
+    background: #eee;
+    border-radius: 5rpx;
+    color: #212121;
+    line-height: 36rpx;
+    margin:28rpx 0 0 90rpx;
+}
+
+.panel .service text:first-of-type {
+    font-weight: 700;
+}
+
+
+
