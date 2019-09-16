@@ -9,8 +9,10 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.4",
-	"appid": "wxe95b2b0ad44af582",
+	"appid": "wxc3c848af5c94f244",
 	"projectname": "%E8%93%9D%E5%B0%8F%E9%9D%92%E7%94%9F%E6%B4%BB%E9%A6%86",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
